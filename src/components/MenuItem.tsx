@@ -2,18 +2,21 @@ import type { MenuItems } from "../types"
 
 type MenuItemProps = {
   item: MenuItems
+  addItem: (item: MenuItems) => void
 
 }
 
-
-
-
-export default function MenuItem({item} : MenuItemProps) {
+export default function MenuItem({item, addItem} : MenuItemProps) {
   return (
-    <div>
-        <p>{item.id}</p>
-        <p>{item.price}</p>
-    </div>
+    <button
+      className="border-2 border-teal-600 hover:bg-teal-200 w-full p-3 flex justify-between"
+      onClick={() => addItem(item)}
+    >
+
+        <p>{item.name}</p>
+        <p className="font-black">${item.price}</p>
+        
+    </button>
   )
 }
 
