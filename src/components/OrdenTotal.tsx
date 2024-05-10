@@ -7,7 +7,7 @@ type OrderTotalProps = {
 }
 
 export default function OrdenTotal({order} : OrderTotalProps) {
-const SubtotalAmount = useMemo(() => order.reduce((total, item) => total + (item.quantity-item.price), 0), [order])
+const SubtotalAmount = useMemo(() => order.reduce((total, item) => total + (item.quantity * item.price), 0), [order])
 
   return (
     <>
